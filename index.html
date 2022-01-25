@@ -3,21 +3,34 @@ title: Welcome to Shell Nouns Study Pages
 layout: default
 ---
 
-- For more information, 
+- For more information,
 
-<script
-	  src="https://code.jquery.com/jquery-3.6.0.min.js"
-	  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-	  crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 
-<div id="table_show"> </div>
+<div id="table_show" class="display">
+    <table id="display">...</table>
+</div>
 
 <script>
-$(document).ready( function () {
-    $.get("https://nccu-eng.github.io/Shell-Nouns-Study/corpus/shell_noun.json", function(data, status){
-        console.log("Data: " + data + "\nStatus: " + status);
-  });
-} );
+    $(document).ready(function () {
+        $.getJSON("https://raw.githubusercontent.com/NCCU-Eng/Shell-Nouns-Study/main/corpus/shell_noun.json", function (data, status) {
+            var tbl_body = document.createElement("tbody");
+            var odd_even = false;
+            $.each(data, function () {
+                var tbl_row = tbl_body.insertRow();
+                tbl_row.className = odd_even ? "odd" : "even";
+                $.each(this, function (k, v) {
+                    var cell = tbl_row.insertCell();
+                    console.log(v);
+                    cell.appendChild(document.createTextNode(v));
+                });
+                odd_even = !odd_even;
+            });
+            $("#display").append(tbl_body);
+            $("#display").DataTable();
+        });
+    });
 </script>
