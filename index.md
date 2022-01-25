@@ -1,4 +1,9 @@
-## Welcome to Shell Nouns Study Pages
+---
+title: Welcome to Shell Nouns Study Pages
+layout: default
+---
+
+## {{page.title}}
 
 
 ### Support or Contact
