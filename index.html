@@ -1,7 +1,5 @@
 ---
 title: Welcome to Shell Nouns Study Pages
-content: this is content
-headline: this is headline
 layout: default
 ---
 
@@ -10,6 +8,8 @@ layout: default
 
 <script>
 $(document).ready( function () {
-    alert("hihi");
+    $.get("https://nccu-eng.github.io/Shell-Nouns-Study/corpus/shell_noun.csv", function(data, status){
+        console.log("Data: " + data + "\nStatus: " + status);
+  });
 } );
 </script>
