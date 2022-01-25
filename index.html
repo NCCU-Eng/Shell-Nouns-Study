@@ -5,10 +5,18 @@ layout: default
 
 - For more information, 
 
+<script
+	  src="https://code.jquery.com/jquery-3.6.0.min.js"
+	  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	  crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+
+<div id="table_show"> </div>
 
 <script>
 $(document).ready( function () {
-    $.get("https://nccu-eng.github.io/Shell-Nouns-Study/corpus/shell_noun.csv", function(data, status){
+    $.get("https://nccu-eng.github.io/Shell-Nouns-Study/corpus/shell_noun.json", function(data, status){
         console.log("Data: " + data + "\nStatus: " + status);
   });
 } );
