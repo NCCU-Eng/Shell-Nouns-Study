@@ -16,21 +16,9 @@ layout: default
 
 <script>
     $(document).ready(function () {
-        $.getJSON("https://raw.githubusercontent.com/NCCU-Eng/Shell-Nouns-Study/main/corpus/shell_noun.json", function (data, status) {
-            var tbl_body = document.createElement("tbody");
-            var odd_even = false;
-            $.each(data, function () {
-                var tbl_row = tbl_body.insertRow();
-                tbl_row.className = odd_even ? "odd" : "even";
-                $.each(this, function (k, v) {
-                    var cell = tbl_row.insertCell();
-                    console.log(v);
-                    cell.appendChild(document.createTextNode(v));
-                });
-                odd_even = !odd_even;
-            });
-            $("#display").append(tbl_body);
-            $("#display").DataTable();
+        $.get("https://raw.githubusercontent.com/NCCU-Eng/Shell-Nouns-Study/main/corpus/shell_noun.html", function (data, status) {
+            $("#display").append(data);
+            $("#display .dataframe").DataTable();
         });
     });
 </script>
