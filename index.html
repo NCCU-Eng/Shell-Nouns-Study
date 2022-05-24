@@ -20,11 +20,11 @@ layout: default
         $.get("https://raw.githubusercontent.com/NCCU-Eng/Shell-Nouns-Study/main/corpus/shell_noun.html", function (data, status) {
             $("#display").append(data);
             $("#display .dataframe").DataTable({
-                scrollY: '50vh',
+                scrollY: '100vh',
                 scrollCollapse: true,
                 paging: true,
             });
-            $("#display .dataframe").css("background-color", "#666666");
+            $("#display .dataframe").css("background-color", "#CCCCCC");
         });
     });
 </script>
