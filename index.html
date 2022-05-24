@@ -10,11 +10,19 @@ layout: default
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
 
+<div id="language" class="container"> 
+    <div class="row">
+        <div class="col-sm"><button id='btn_ch' type="button" class="btn btn-primary">Chinese</button></div>
+        <div class="col-sm"><button id='btn_cz' type="button" class="btn btn-primary">Czech</button></div>
+        <div class="col-sm"><button id='btn_en' type="button" class="btn btn-primary">English</button></div>
+        <div class="col-sm"><button id='btn_jp' type="button" class="btn btn-primary">Japanese</button></div>
+        <div class="col-sm"><button id='btn_vi' type="button" class="btn btn-primary">Vietnamese</button></div>
+    </div>
+</div>
 <div id="table_show" class="display">
     <div id="display"> </div>
 </div>
-<style>
-</style>
+
 <script>
     $(document).ready(function () {
         $.get("https://raw.githubusercontent.com/NCCU-Eng/Shell-Nouns-Study/main/corpus/shell_noun.html", function (data, status) {
@@ -25,6 +33,13 @@ layout: default
                 paging: true,
             });
             $("#display .dataframe").css("background-color", "#CCCCCC");
+
+            table.on( 'draw', function () {
+                var body = $( table.table().body() );
+
+                body.unhighlight();
+                body.highlight( table.search() );
+            } );
         });
     });
 </script>
