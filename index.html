@@ -8,17 +8,11 @@ layout: default
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.css">
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.12.0/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
 
-<div id="language" class="container"> 
-    <div class="row">
-        <div class="col-sm"><button id='btn_ch' type="button" class="btn btn-primary">Chinese</button></div>
-        <div class="col-sm"><button id='btn_cz' type="button" class="btn btn-primary">Czech</button></div>
-        <div class="col-sm"><button id='btn_en' type="button" class="btn btn-primary">English</button></div>
-        <div class="col-sm"><button id='btn_jp' type="button" class="btn btn-primary">Japanese</button></div>
-        <div class="col-sm"><button id='btn_vi' type="button" class="btn btn-primary">Vietnamese</button></div>
-    </div>
-</div>
 <div id="table_show" class="display">
     <div id="display"> </div>
 </div>
@@ -31,15 +25,16 @@ layout: default
                 scrollY: '100vh',
                 scrollCollapse: true,
                 paging: true,
+                dom: 'Bfrtip',
+                buttons: [{
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    }},
+                    'colvis'
+                ],
             });
             $("#display .dataframe").css("background-color", "#CCCCCC");
-
-            table.on( 'draw', function () {
-                var body = $( table.table().body() );
-
-                body.unhighlight();
-                body.highlight( table.search() );
-            } );
         });
     });
 </script>
