@@ -34,16 +34,6 @@ layout: default
 
             $("#display .dataframe").css("background-color", "#CCCCCC");
 
-	        // When the column visibility changes on the firs table, also change it on
-	        // the others
-	        tables.table(0).on('column-visibility', function ( e, settings, colIdx, visibility ) {
-		        tables.tables(':gt(0)').column( colIdx ).visible( visibility );
-	        } );
-
-	        // Create ColVis on the first table only
-	        var colvis = new $.fn.dataTable.ColVis( tables.table(0) );
-	        $( colvis.button() ).insertAfter('div.info');
-
         });
     });
 </script>
