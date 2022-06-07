@@ -23,6 +23,13 @@ layout: default
                 scrollY: '100vh',
                 scrollCollapse: true,
                 paging: true,
+                buttons: [{
+                    extend: 'print',
+                    exportOptions: {
+                        columns: ':visible'
+                    }},
+                    'colvis'
+                ],
             });
             $("#display .dataframe").css("background-color", "#CCCCCC");
         });
