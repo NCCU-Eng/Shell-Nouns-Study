@@ -24,11 +24,8 @@ layout: default
                 scrollCollapse: true,
                 paging: true,
                 buttons: [{
-                    extend: 'print',
-                    exportOptions: {
-                        columns: ':visible'
-                    }},
-                    'colvis'
+                    extend: 'columnsToggle',
+                    columns: '.toggle',
                 ],
             });
             $("#display .dataframe").css("background-color", "#CCCCCC");
