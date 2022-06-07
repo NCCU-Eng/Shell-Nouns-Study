@@ -20,7 +20,7 @@ layout: default
         $.get("https://raw.githubusercontent.com/NCCU-Eng/Shell-Nouns-Study/main/corpus/shell_noun.html", function (data, status) {
             $("#display").append(data);
             $("#display").addClass("table table-striped");
-            $("#display .dataframe").DataTable({
+            var tables = $("#display .dataframe").DataTable({
                 scrollY: '100vh',
                 scrollCollapse: true,
                 paging: true,
