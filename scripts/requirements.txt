@@ -1,2 +1,1 @@
 pandas
-beautifulsoup4
